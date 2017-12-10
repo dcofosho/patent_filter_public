@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>Patent filter app</h1>
+<hr>
+<p>Type in a claim in the field below and hit go to test whether or not the patent is a go!</p>
+<br>
+<p>To use the API, simply go to the url /gonogoapi/[STRING WITH SLASHES REMOVED]</p>
+<br>
+<p>The API returns a JSON object with isgo value which will be [0] if nogo, [1] if go.</p>
+<form action="{{url_for('patentFilter')}}" method = "post">
+	<label for="msg">Enter message (with slashes and quotes removed) here:</label>
+	<input type="text" maxLength="1000" name="claim" placeholder="Enter claim here">
+	<button type="submit"class="btn btn-default" id="submit">Go</button>
+</form>
+{% endblock %}
